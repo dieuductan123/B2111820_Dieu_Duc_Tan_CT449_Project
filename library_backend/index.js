@@ -1,14 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const booksRouter = require("./routes/book.route"); 
 
 const app = express();
 
 app.use(express.json());
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-    res.json({message: "Hello from the server! Welcome to the Library Application"})
-});
 
 app.use("/api/books", booksRouter);
 
