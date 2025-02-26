@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const booksRouter = require("./routes/book.route");
-const publisherRouter = require("./routes/publisher.route"); 
+const publisherRouter = require("./routes/publisher.route");
+const employeeRouter = require("./routes/employee.route");
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 // routes
 app.use("/api/books", booksRouter);
 app.use("/api/publishers", publisherRouter);
+app.use("/api/employees", employeeRouter);
 
 mongoose
   .connect(process.env.mongoURI)
