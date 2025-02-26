@@ -1,16 +1,19 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const booksRouter = require("./routes/book.route"); 
+const booksRouter = require("./routes/book.route");
+const publisherRouter = require("./routes/publisher.route"); 
 
 const app = express();
 
+// middleware
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
-
+// routes
 app.use("/api/books", booksRouter);
+app.use("/api/publishers", publisherRouter);
 
 mongoose
   .connect(process.env.mongoURI)
