@@ -15,13 +15,13 @@ const BookSchema = mongoose.Schema(
 
     price: {
       type: Number,
-      default: 0,
+      default: 200,
     },
 
     quantity: {
       type: Number,
       required: [true, "Please enter book quantity"],
-      default: 0,
+      default: 100,
     },
 
     publishYear: {
@@ -34,8 +34,8 @@ const BookSchema = mongoose.Schema(
     },
 
     publisherId: {
-      type: String,
-      ref: "nhaXuatBan",
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'nhaXuatBan',
       required: true,
     },
 
@@ -48,5 +48,5 @@ const BookSchema = mongoose.Schema(
   }
 );
 
-const Book = mongoose.model("Sach", BookSchema);
+const Book = mongoose.model("sach", BookSchema);
 module.exports = Book;
