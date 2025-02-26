@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const booksRouter = require("./routes/book.route");
 const publisherRouter = require("./routes/publisher.route");
 const employeeRouter = require("./routes/employee.route");
+const readerRouter = require("./routes/reader.route");
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/books", booksRouter);
 app.use("/api/publishers", publisherRouter);
 app.use("/api/employees", employeeRouter);
+app.use("/api/readers", readerRouter);
 
 mongoose
   .connect(process.env.mongoURI)
