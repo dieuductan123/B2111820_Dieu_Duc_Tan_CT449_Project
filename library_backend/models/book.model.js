@@ -33,6 +33,12 @@ const BookSchema = mongoose.Schema(
       required: false,
     },
 
+    publisherId: {
+      type: String,
+      ref: "nhaXuatBan",
+      required: true,
+    },
+
     author: {
       type: String,
     },
