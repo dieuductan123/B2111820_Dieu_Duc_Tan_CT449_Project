@@ -2,6 +2,10 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+
+const authRoutes = require("./routes/auth-routes");
+const homeRoutes = require("./routes/home-routes");
+const adminRoutes = require("./routes/admin-routes");
 const booksRouter = require("./routes/book.route");
 const publisherRouter = require("./routes/publisher.route");
 const employeeRouter = require("./routes/employee.route");
@@ -16,6 +20,9 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 // routes
+app.use('/api/auth', authRoutes);
+app.use('/api/home', homeRoutes);
+app.use('/api/admin', adminRoutes);
 app.use("/api/books", booksRouter);
 app.use("/api/publishers", publisherRouter);
 app.use("/api/employees", employeeRouter);
